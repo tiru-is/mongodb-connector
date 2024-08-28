@@ -41,7 +41,7 @@ public class MongodbConnectorFunction implements OutboundConnectorFunction {
    */
   @Override
   public Object execute(OutboundConnectorContext outboundConnectorContext) throws Exception {
-    String variables = outboundConnectorContext.getVariables();
+    String variables = outboundConnectorContext.getJobContext().getVariables();
     final var mongoDBRequest = gson.fromJson(variables, MongoDBRequest.class);
     LOGGER.info("{}", mongoDBRequest);
 

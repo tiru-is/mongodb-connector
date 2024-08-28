@@ -1,7 +1,5 @@
 package com.acheron.camunda.connectors.mongodb.util;
 
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeName;
 import java.util.ArrayList;
 import java.util.List;
 import org.slf4j.Logger;
@@ -13,14 +11,8 @@ import org.slf4j.LoggerFactory;
  *
  * @author HariharanB
  */
-@JsonTypeName("filtersWrapper")
 public class FiltersWrapper {
-  @JsonSubTypes(
-      value = {
-        @JsonSubTypes.Type(value = FilterEntry.class, name = "filterList"),
-      })
   List<FilterEntry> filterList;
-
   String logicalOperator;
 
   private static final Logger LOGGER = LoggerFactory.getLogger(FiltersWrapper.class);
